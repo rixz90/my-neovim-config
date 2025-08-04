@@ -2,15 +2,12 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			{ "antosha417/nvim-lsp-file-operations", config = true },
+      'saghen/blink.cmp'
 		},
-
 		config = function()
 			local lspconfig = require("lspconfig")
-			local cmp_nvim_lsp = require("cmp_nvim_lsp")
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			local options = { noremap = true, silent = true }
-			local capabilities = cmp_nvim_lsp.default_capabilities()
 
 			local on_attach = function(_, bufnr)
 				options.buffer = bufnr
