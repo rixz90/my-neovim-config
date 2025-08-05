@@ -5,7 +5,7 @@ return {
     lazy = false,
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.configs").setup({
+    require("nvim-treesitter.configs").setup({
         ensure_installed = {
           "lua",
           "vim",
@@ -20,6 +20,8 @@ return {
           "markdown",
           "markdown_inline",
           "php",
+          "phpdoc",
+          "blade"
         },
         highlight = { enable = true },
         indent = { enable = true },
@@ -61,7 +63,7 @@ return {
             selection_modes = {
               ["@parameter.outer"] = "v", -- charwise
               ["@function.outer"] = "V", -- linewise
-              ["@class.outer"] = "<c-v>", -- blockwise
+              ["@class.outer"] = "<c-q>", -- blockwise
             },
             -- If you set this to `true` (default is `false`) then any textobject is
             -- extended to include preceding or succeeding whitespace. Succeeding

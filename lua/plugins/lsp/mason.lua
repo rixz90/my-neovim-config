@@ -9,8 +9,6 @@ return {
 				"tailwindcss",
 				"emmet_language_server",
 				"phpactor",
-				"valor",
-				"intelephense",
 			},
 			automatic_enable = true,
 		},
