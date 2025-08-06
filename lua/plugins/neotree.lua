@@ -9,7 +9,6 @@ return {
 		},
 		lazy = false, -- neo-tree will lazily load itself
 		config = function()
-			vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left toggle=true<CR>", {})
 			require("neo-tree").setup({
 				filesystem = {
 					filtered_items = {
@@ -17,6 +16,7 @@ return {
 					},
 				},
 			})
+			vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left toggle=true<CR>", {})
 		end,
 	},
 }

@@ -6,8 +6,15 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { noremap = true, silent = true })
 
-vim.cmd(":nnoremap <silent> <CR> :noh<CR>")
+vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<CR>", ":noh<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
+vim.keymap.set("n", "<space>x", ":.lua<CR>")
+vim.keymap.set("v", "<space>x", ":lua<CR>")
+vim.keymap.set("v", "s", "S")
+
