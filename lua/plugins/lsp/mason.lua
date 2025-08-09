@@ -9,6 +9,7 @@ return {
 				"tailwindcss",
 				"emmet_language_server",
 				"phpactor",
+        "stimulus-language-server"
 			},
 			automatic_enable = true,
 		},

@@ -2,7 +2,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-      'saghen/blink.cmp'
+			"saghen/blink.cmp",
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
@@ -34,6 +34,18 @@ return {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
+			lspconfig.stimulus_ls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			lspconfig.volar.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			lspconfig.laravel_ls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
 			lspconfig.phpactor.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
@@ -41,13 +53,13 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = {"vim"}
-            }
-          }
-        }
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
 			})
 		end,
 	},
