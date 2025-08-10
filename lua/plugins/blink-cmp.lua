@@ -14,6 +14,9 @@ return {
 		completion = { documentation = { auto_show = false } },
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer", "copilot" },
+			per_filetype = {
+				sql = { "snippets", "dadbod", "buffer" },
+			},
 			providers = {
 				copilot = {
 					name = "copilot",
@@ -25,6 +28,7 @@ return {
 						kind_icon = " ",
 					},
 				},
+				dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 			},
 		},
 		fuzzy = { implementation = "prefer_rust_with_warning" },
