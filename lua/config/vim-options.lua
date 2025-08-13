@@ -23,18 +23,25 @@ vim.keymap.set("n", "<leader>aa", ":CodeCompanion<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ac", ":CodeCompanionChat<CR>", { noremap = true, silent = true })
 
 -- Harpoon
-vim.keymap.set("n", "hx", ":lua require('harpoon.mark').add_file()<CR>", { silent = true })
-vim.keymap.set("n", "hp", ":lua require('harpoon.ui').nav_prev()<CR>", { silent = true })
-vim.keymap.set("n", "hn", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true })
-vim.keymap.set("n", "hm", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", {})
+vim.keymap.set("n", "hx", require('harpoon.mark').add_file, {})
+vim.keymap.set("n", "hp", require('harpoon.ui').nav_prev, {})
+vim.keymap.set("n", "hn", require('harpoon.ui').nav_next, {})
+vim.keymap.set("n", "hm", require('harpoon.ui').toggle_quick_menu, {})
 
 -- Neotree
 vim.keymap.set("n", "<leader>r", ":Neotree toggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>rr", ":Neotree reveal show<CR>", { silent = true })
+
+-- Dadbod
+vim.keymap.set("n", "<leader>db", ":DBUI<CR>", { silent = true })
+
+-- Tailwind CSS
+vim.keymap.set("n", "<leader>0", ":TailwindConcealToggle<CR>", { silent = true })
 
 -- Blade highlighting
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "blade",
-	callback = function()
-		vim.cmd("TSBufEnable highlight")
-	end,
-})
+ vim.api.nvim_create_autocmd("FileType", {
+ 	pattern = "blade",
+ 	callback = function()
+ 		vim.cmd("TSBufEnable highlight")
+ 	end,
+ })
