@@ -35,19 +35,6 @@ return {
         configNamespace = "typescript",
       }
 
-      local vtsls_config = {
-        settings = {
-          vtsls = {
-            tsserver = {
-              globalPlugins = {
-                vue_plugin,
-              },
-            },
-          },
-        },
-        filetypes = tsserver_filetypes,
-      }
-
       local ts_ls_config = {
         init_options = {
           plugins = {
@@ -55,14 +42,17 @@ return {
           },
         },
         filetypes = tsserver_filetypes,
+        on_attach = on_attach,
       }
 
-      local vue_ls_config = {}
-      vim.lsp.config("vtsls", vtsls_config)
+      local vue_ls_config = {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      }
       vim.lsp.config("vue_ls", vue_ls_config)
       vim.lsp.config("ts_ls", ts_ls_config)
       vim.lsp.enable({ "ts_ls", "vue_ls" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
-      
+
       lspconfig.html.setup({
         capabilities = capabilities,
         on_attach = on_attach,
@@ -72,7 +62,6 @@ return {
         on_attach = on_attach,
       })
       lspconfig.emmet_language_server.setup({
-        filetypes = { "html", "css", "vue", "javascript", "typescriptreact", "typescript", "javascriptreact" },
         capabilities = capabilities,
         on_attach = on_attach,
       })

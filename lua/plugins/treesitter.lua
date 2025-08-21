@@ -25,8 +25,8 @@ return {
 			},
 			highlight = { enable = true },
 			indent = { enable = true },
-      autotag = { enable = true },
-
+			autotag = { enable = true },
+			fold = { enable = true }, -- Enable Tree-sitter folding
 			incremental_selection = {
 				enable = true,
 				keymaps = {

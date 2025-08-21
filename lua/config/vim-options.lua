@@ -23,10 +23,10 @@ vim.keymap.set("n", "<leader>aa", ":CodeCompanion<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ac", ":CodeCompanionChat<CR>", { noremap = true, silent = true })
 
 -- Harpoon
-vim.keymap.set("n", "hx", require('harpoon.mark').add_file, {})
-vim.keymap.set("n", "hp", require('harpoon.ui').nav_prev, {})
-vim.keymap.set("n", "hn", require('harpoon.ui').nav_next, {})
-vim.keymap.set("n", "hm", require('harpoon.ui').toggle_quick_menu, {})
+vim.keymap.set("n", "hx", require("harpoon.mark").add_file, {})
+vim.keymap.set("n", "hp", require("harpoon.ui").nav_prev, {})
+vim.keymap.set("n", "hn", require("harpoon.ui").nav_next, {})
+vim.keymap.set("n", "hm", require("harpoon.ui").toggle_quick_menu, {})
 
 -- Neotree
 vim.keymap.set("n", "<leader>r", ":Neotree toggle<CR>", { silent = true })
@@ -38,10 +38,23 @@ vim.keymap.set("n", "<leader>db", ":DBUI<CR>", { silent = true })
 -- Tailwind CSS
 vim.keymap.set("n", "<leader>0", ":TailwindConcealToggle<CR>", { silent = true })
 
+-- Nvim-Emmet
+vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
+
+-- ufo folding
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
+vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+
 -- Blade highlighting
- vim.api.nvim_create_autocmd("FileType", {
- 	pattern = "blade",
- 	callback = function()
- 		vim.cmd("TSBufEnable highlight")
- 	end,
- })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "blade",
+	callback = function()
+		vim.cmd("TSBufEnable highlight")
+	end,
+})
+
