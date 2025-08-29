@@ -51,7 +51,7 @@ return {
       }
       vim.lsp.config("vue_ls", vue_ls_config)
       vim.lsp.config("ts_ls", ts_ls_config)
-      vim.lsp.enable({ "ts_ls", "vue_ls" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
+      vim.lsp.enable({ "ts_ls", "vue_ls" })
 
       lspconfig.html.setup({
         capabilities = capabilities,
