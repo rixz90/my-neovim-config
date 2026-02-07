@@ -9,21 +9,27 @@ return {
 				"tailwindcss",
 				"emmet_language_server",
 				"phpactor",
-        "stimulus-language-server"
+				"stimulus-language-server",
 			},
-			automatic_enable = true,
 		},
-	},
-	{
-		"mason-org/mason.nvim",
-		opts = {
-			ui = {
-				icons = {
-					package_installed = "✓",
-					package_pending = "➜",
-					package_uninstalled = "✗",
+		dependencies = {
+			{
+				"mason-org/mason.nvim",
+				opts = {
+					ui = {
+						icons = {
+							package_installed = "✓",
+							package_pending = "➜",
+							package_uninstalled = "✗",
+						},
+					},
 				},
 			},
+			"neovim/nvim-lspconfig",
 		},
+
+		config = function()
+			require("mason-lspconfig").setup()
+		end,
 	},
 }

@@ -1,7 +1,7 @@
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.wrap = false
-
+vim.cmd("set clipboard+=unnamedplus")
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
@@ -51,6 +51,11 @@ vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 
 -- Blade highlighting
+vim.filetype.add({
+	pattern = {
+		[".*%.blade%.php"] = "blade",
+	},
+})
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "blade",
 	callback = function()
@@ -59,4 +64,4 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- undoTree
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
